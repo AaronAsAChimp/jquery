@@ -53,3 +53,18 @@ supportIFrameTest( "body background is not lost if set prior to loading jQuery (
 	}
 	ok( passed, "Same support properties" );
 });
+
+supportIFrameTest( "check if padding affects support (#7986)", "padding", function( support ) {
+
+	expect(1);
+
+	var i, passed = true;
+	for ( i in jQuery.support ) {
+		if ( jQuery.support[ i ] !== support[ i ] ) {
+			passed = false;
+			equals( jQuery.support[ i ], support[ i ], "Support property " + i + " is different" );
+		}
+	}
+	
+	ok( passed, "Same support properties" );
+});

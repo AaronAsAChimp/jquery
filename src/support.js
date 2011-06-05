@@ -136,6 +136,9 @@ jQuery.support = (function() {
 
 	// Figure out if the W3C box model works as expected
 	div.style.width = div.style.padding = "1px";
+	div.style.border = 0;
+	div.style.overflow = "hidden";
+	div.style.display = "block";
 
 	body = document.getElementsByTagName( "body" )[ 0 ];
 	// We use our own, invisible, body unless the body is already present
@@ -179,7 +182,7 @@ jQuery.support = (function() {
 
 		// Check if elements with layout shrink-wrap their children
 		// (IE 6 does this)
-		div.style.display = "";
+		div.style.display = "block";
 		div.innerHTML = "<div style='width:5px;'></div>";
 		support.shrinkWrapBlocks = ( div.offsetWidth !== 3 );
 	}
